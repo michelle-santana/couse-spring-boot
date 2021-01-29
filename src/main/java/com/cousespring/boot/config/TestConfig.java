@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.cousespring.boot.entities.Category;
 import com.cousespring.boot.entities.OrdemItem;
 import com.cousespring.boot.entities.Order;
+import com.cousespring.boot.entities.Payment;
 import com.cousespring.boot.entities.Product;
 import com.cousespring.boot.entities.User;
 import com.cousespring.boot.entities.enums.OrderStatus;
@@ -84,6 +85,11 @@ public class TestConfig implements CommandLineRunner{
 		OrdemItem oi4 = new OrdemItem(o3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"),o1 );
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
 		
 		
 	}
