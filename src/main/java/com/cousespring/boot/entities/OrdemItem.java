@@ -72,6 +72,11 @@ public class OrdemItem implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	
+	public Double getSubTotal() {
+		return price * quantity;
+		
+	}
 
 	@Override
 	public boolean equals(Object obj) {
